@@ -22,6 +22,7 @@ import re
 ENGLISH_REGEX_MAP = {
     r'\w': 'alphanumeric',
     r'a-zA-Z0-9': 'latin letters and numbers',
+    r'\d': 'numbers',
     r'\-': '``-``',
     r'\.': '``.``',
     r'\/': '``/``'
@@ -187,7 +188,7 @@ class SuiteNameValidator(UnicodeRuleChecker):
 
     RULES = [
         length(1, 254),
-        not_starts_with(r'\.', r'\-'),
+        not_starts_with(r'\.', r'\-', r'\d'),
         allowed_characters(r'\w', r'\/', '_', '+', r'\-', r'\.', '@')
     ]
 
