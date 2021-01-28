@@ -28,7 +28,8 @@ set_test_number 15
 # and writes to $CYLC_SUITE_RUN_DIR.
 
 create_test_global_config "
-process pool timeout = PT10S
+[scheduler]
+    process pool timeout = PT10S
 [platforms]
     [[$CYLC_TEST_PLATFORM]]
         job runner command template = talkingnonsense %(job)s
